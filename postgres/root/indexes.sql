@@ -2,13 +2,10 @@ CREATE INDEX i0
 ON profiles(id) INCLUDE (first_name, last_name);
 
 CREATE INDEX i1
-ON appointments(doctor_id, "status") INCLUDE (
-    "date", "time", duration_hours
-);
+ON appointments (doctor_id, scheduled_at, "status");
 
 CREATE INDEX i2
-ON appointments (patient_id, "status")
-INCLUDE ("date", "time", duration_hours);
+ON appointments (patient_id, scheduled_at, "status");
 
 CREATE INDEX i4 
 ON appointments_billing(appointment_id)
