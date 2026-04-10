@@ -461,7 +461,7 @@ ON workers_time_deductions FOR ALL TO authenticated USING
 CREATE POLICY workers_see_their_deductions 
 ON workers_time_deductions FOR SELECT TO authenticated 
 USING (
-    nurse_id = (select auth.uid())
+    worker_id = (select auth.uid())
 );
 
 /*"""                        NURSES AND THEIR WARD PATIENTS
